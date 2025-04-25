@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import Job from '../models/testTaskModel'; 
-import jobApplicationSchema from '../models/testTaskSchemaJoi';
+import Job from '../models/testTaskModel.js'; 
+import jobApplicationSchema from '../models/testTaskSchemaJoi.js';
 
  const sendApplication = async (
   req: Request,

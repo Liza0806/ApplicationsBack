@@ -1,7 +1,7 @@
 import express, { Application } from "express";
-import sendRouter from "./routes/jobRoutes"; 
-const mongoose = require("mongoose");
-import { DB_HOST }  from "../config"
+import sendRouter from "./routes/jobRoutes.js"; 
+import mongoose from "mongoose";
+import { DB_HOST }  from "../config.js"
 
 
 const app: Application  = express();

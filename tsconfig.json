@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2020",
+    "lib": ["ES6"], 
+    "module": "NodeNext",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "outDir": "./build",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "lib":["esnext"],
+  "ts-node": {
+    "esm": true
+  }
+}
+
+

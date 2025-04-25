@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Job from '../models/testTaskModel';
+import Job from '../models/testTaskModel.js';
 
 const deleteApplication = async (
   req: Request,

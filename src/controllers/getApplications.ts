@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Job from '../models/testTaskModel';
+import Job from '../models/testTaskModel.js';
 
 const getApplications = async (
   req: Request,
