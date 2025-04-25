@@ -5,11 +5,11 @@ const deleteApplication = async (
   req: Request,
   res: Response
 ): Promise<any> => {
-  const { id } = req.params; // Получаем ID из параметров URL
+  const { _id } = req.params; // Получаем ID из параметров URL
 
   try {
-    const deletedJob = await Job.findByIdAndDelete(id); // Ищем и удаляем по ID
-
+    const deletedJob = await Job.findByIdAndDelete(_id); // Ищем и удаляем по ID
+    
     if (!deletedJob) {
       return res.status(404).json({ error: 'Заявка не найдена' }); // Если заявка не найдена
     }

@@ -5,11 +5,11 @@ const updateApplication = async (
   req: Request,
   res: Response
 ): Promise<any> => {
-  const { id } = req.params; 
+  const { _id } = req.params; 
   const updateData = req.body; 
 
   try {
-    const updatedJob = await Job.findByIdAndUpdate(id, updateData, {
+    const updatedJob = await Job.findByIdAndUpdate(_id, updateData, {
       new: true, 
       runValidators: true, 
     });

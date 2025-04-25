@@ -1,26 +1,37 @@
 import express, { Application } from "express";
-import sendRouter from "./routes/jobRoutes.js"; 
+import jobRouter from "./routes/jobRoutes.js"; 
 import mongoose from "mongoose";
-import { DB_HOST }  from "../config.js"
+import { DB_HOST }  from "./config.js"
+import cors from "cors";
+
+const app: Application = express();
+
+mongoose.connect(DB_HOST)
+  .then(() => {
+    console.log("Database connect success");
+  })
+  .catch((error) => {
+    console.log(error.message, "error");
+    process.exit(1);
+  });
 
 
-const app: Application  = express();
-
-mongoose.connect(DB_HOST).then(() => {
-  console.log("Database connect success");
-}).catch((error) => {
-  console.log(error.message, "error");
-  process.exit(1);
-});
-
+app.use(cors());
 app.use(express.json());
+app.use("/", jobRouter);
 
-app.use("/send", sendRouter); 
+const PORT = 5000;  //process.env.PORT || 
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+
+  // консолька для тех, кто забыл маршруты
+  console.log('Registered routes:');
+  jobRouter.stack.forEach((middleware: any) => {
+    if (middleware.route) {
+      console.log(middleware.route.path);
+    }
+  });
 });
 
-
-export default app; 
+export default app;
